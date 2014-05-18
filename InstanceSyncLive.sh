@@ -1,12 +1,13 @@
 #!/bin/bash
 # =============================================================================
 # - title        : Migrating Servers Using RSYNC
-# - description  : This Script Will Migrate Data From one Instance to another
+# - description  : This Script Will Migrate Data From one server to another
 # - License      : GPLv3
 # - author       : Kevin Carter
-# - date         : 2013-11-16
-# - version      : 2.0.1
-# - usage        : bash rsrsyncLive.sh
+# - fork author  : Andrew Herrington
+# - date         : 2014-05-17 
+# - version      : 2.0.2-DO
+# - usage        : bash InstanceSyncLive.sh
 # - OS Supported : Ubuntu, Debian, SUSE, Gentoo, RHEL, CentOS, Scientific, Arch
 # =============================================================================
 
@@ -138,7 +139,7 @@ I perfer cold \033[1;33mBeer\033[0m But I will normally drink anything.  :)
 }
 
 
-# Check to see if this is an Amazon Server Migrating to the Rackspace Cloud
+# Check to see if this is an Amazon Server Migrating 
 # =============================================================================
 function ISTHISAMAZON() {
   KERNELTYPE=$(uname -r | head -n 1)
@@ -320,7 +321,7 @@ times things happen which can cause incompatibilities.
 # =============================================================================
 function GETDRIVE1() {
   read -p "
-Press [Enter] to Continue accepting the normal Rackspace Defaults 
+Press [Enter] to Continue accepting the normal defaults 
 or you may Specify a Source Directory: " DRIVE1
   DRIVE1=${DRIVE1:-"/"}
 
@@ -335,8 +336,8 @@ or you may Specify a Source Directory: " DRIVE1
 function GETDRIVE2() {
   echo -e "
 Here you Must Specify the \033[1;33mTarget\033[0m mount point.  This is 
-\033[1;33mA MOUNT\033[0m Point. Under Normal Rackspace Circumstances this drive
-would be \"/\" or \"/dev/xvdb1\". Remember, there is no way to check that the 
+\033[1;33mA MOUNT\033[0m Point. Under Normal Circumstances this drive
+would be \"/\" or \"/dev/vda\". Remember, there is no way to check that the 
 directory or drive exists. This means we are relying on \033[1;33mYOU\033[0m to
 type correctly.
 "
@@ -700,12 +701,8 @@ session.
 sleep 1
 
 echo -e "This Utility does an \033[1;32mRSYNC\033[0m copy of instances over the 
-network. As such, I recommend that you perform this Migration Action on SNET 
+network. As such, I recommend that you perform this Migration Action on PrivateNetworking 
 (Internal IP), however any Network will work. 
-
-Here is why I make this recommendation:
-Service Net = \033[1;32mFREE\033[0m Bandwidth.
-Public Net  = \033[1;35mNOT FREE\033[0m Bandwidth
 " 
 
 # Run the Amazon Check
@@ -751,7 +748,7 @@ ssh -i ${SSH_KEY_TEMP} -o UserKnownHostsFile=/dev/null \
                        -o StrictHostKeyChecking=no root@${TIP} \
                        "shutdown -r now"
 
-echo -e "If you were copying something that was not a Rackspace Cloud Server, 
+echo -e "If you were copying something that was not a Droplet
 You may need to ensure that your setting are correct, and the target is healthy
 "
 
