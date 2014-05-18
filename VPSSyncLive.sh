@@ -7,7 +7,7 @@
 # - fork author  : Andrew Herrington
 # - date         : 2014-05-17 
 # - version      : 2.0.2-DO
-# - usage        : bash InstanceSyncLive.sh
+# - usage        : bash VPSSyncLive.sh
 # - OS Supported : Ubuntu, Debian, SUSE, Gentoo, RHEL, CentOS, Scientific, Arch
 # =============================================================================
 
@@ -700,7 +700,7 @@ session.
 
 sleep 1
 
-echo -e "This Utility does an \033[1;32mRSYNC\033[0m copy of instances over the 
+echo -e "This Utility does an \033[1;32mRSYNC\033[0m copy of your VPS over the 
 network. As such, I recommend that you perform this Migration Action on PrivateNetworking 
 (Internal IP), however any Network will work. 
 " 
