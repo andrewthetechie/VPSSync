@@ -10,9 +10,7 @@ The use cases
 ^^^^^^^^^^^^^
 
 * Migrating from one provider to another
-* Cloning an droplet 
-* Upgrading Infrastructures
-* Setting up Geographic Redundancies 
+* Downgrading a droplet to a smaller size
 
 
 What I have tested
