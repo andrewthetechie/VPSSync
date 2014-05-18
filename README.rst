@@ -1,16 +1,16 @@
-InstanceSync, Resource Cloning
+DropletSync, Resource Cloning
 ##############################
 :date: 2013-11-16
-:tags: migrate, clone, sync, rackspace, aws, hpcloud
+:tags: migrate, clone, sync, rackspace, aws, hpcloud, droplet
 :category: \*nix
-:version: 2.0.0
+:version: 2.0.2-DO
 
 
 The use cases
 ^^^^^^^^^^^^^
 
 * Migrating from one provider to another
-* Cloning an instance 
+* Cloning an droplet 
 * Upgrading Infrastructures
 * Setting up Geographic Redundancies 
 
@@ -18,22 +18,23 @@ The use cases
 What I have tested
 ^^^^^^^^^^^^^^^^^^
 
-* Rackspace Instances from XenClassic To XenServer
-* Rackspace Instances from XenServer to Open Cloud powered by OpenStack
-* Rackspace Instances from XenClassic To Open Cloud powered by OpenStack 
-* Amazon EC2 to the Rackspace Cloud
-* KVM to Rackspace Cloud
+* Droplet to Droplet (Same OS)
+* Droplet to Droplet (Similar OS i.e Ubuntu to Debian or Ubuntu 12.04 to 14.04)
+* Droplet to Droplet (Different OSes i.e. Centos to Debian, see caveats)
+* Other KVM VPS to Droplet (Some are better than others)
+* Amazon EC2 to Droplet
+* Rackspace cloud to Droplet
+* Dedicated Server to Droplet
 
 
 Caveats :
-  There are two issues I have found while migrating instances around. However, the most important caveat was related to the instance type.  **You Must Have a Similar Instance to Migrate Too**. 
-  Additionally to migrate a linux server from one place to another you must also have setup the instance to use a Single partition for installation.  
-  If you are using a multi-partition virtual instance, you will have to manually migrate the partitions accordingly.  Which can be successfully accomplished by migrating the instance by hand. 
-  Other than the one caveat, of having Similar Instance, I have not had this process fail.
+  There are two issues I have found while migrating droplets around. However, the most important caveat was related to the droplet type.  **You Must Have a Similar Droplet to Migrate Too**. 
+  If you are using a multi-partition virtual machine to migrate to a droplet, you will have to manually migrate the partitions accordingly.  Which can be successfully accomplished by migrating to the droplet by hand. 
+  Other than the one caveat, of having Similar Droplet, I have not had this process fail. It does sometimes get a little wonky when going between Different OSes (Centos to Debian, etc) and I do not suggest it in that case.
 
   
 Testament that It Works :
-  I know that this method works for a variety of situations, I have even had this process complete successfully when migrating an instance that uses **Amazon AMI Linux**. 
+  I know that this method works for a variety of situations, I have even had this process complete successfully when migrating to a droplet from **Amazon AMI Linux**. 
 
   
 Available Options
@@ -80,13 +81,6 @@ Estimated time of Completion
  620G         544  Minutes
  1200G        1088 Minutes
 ============  ============
-
-
-Do you want to see the script in Action:
-  I have a screen cast of a migration for a Live Instance to another instance. `You can check it out here`_\.
-
-  
-.. _You can check it out here: http://ascii.io/a/1063
 
 
 Foot Notes
